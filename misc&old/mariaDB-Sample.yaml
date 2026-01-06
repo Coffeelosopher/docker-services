@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mariadb:
+    container_name: MariaDB-Test-Container
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: mariadbtest
+      MYSQL_USER: 
+      MYSQL_PASSWORD: 
+    volumes:
+      - /home/nico/Documents/Docker/Volumes/MariaDBTest:/var/lib/mysql
+    ports:
+      - "3306:3306"

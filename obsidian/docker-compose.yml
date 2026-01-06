@@ -1,0 +1,15 @@
+services:
+  couchdb:
+    image: couchdb:latest
+    container_name: couchdb-obsidian
+    user: 5984:5984
+    environment:
+      COUCHDB_SERVER: ${COUCHDB_SERVER}
+      COUCHDB_USER: ${COUCHDB_USER}
+      COUCHDB_PASSWORD: ${COUCHDB_PW}
+    volumes:
+      - ./volumes/couchdb-data:/opt/couchdb/data
+      - ./volumes/couchdb-etc:/opt/couchdb/etc/local.d
+    ports:
+      - 5984:5984
+    restart: unless-stopped

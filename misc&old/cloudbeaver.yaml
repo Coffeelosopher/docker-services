@@ -1,0 +1,22 @@
+version: '3'
+services:
+  cloudbeaver:
+    container_name: CloudBeaverTest
+    image: dbeaver/cloudbeaver:latest
+    restart: always
+    volumes:
+      - /var/cloudbeaver/workspace:/opt/cloudbeaver/workspace
+    
+    environment:
+      CB_CONNECTION_URL: jdbc:mysql://localhost:3306/
+      CB_CONNECTION_USER: GruppeH
+      CB_CONNECTION_PASSWORD: ${CB_CONNECTION_PASSWORD}
+    
+    ports:
+      - '8080:8978'
+
+    networks:
+      - databases
+
+networks:
+  databases:

@@ -1,0 +1,10 @@
+services:
+  vaultwarden:
+    container_name: vaultwarden
+    image: vaultwarden/server:latest
+    restart: unless-stopped
+    volumes:
+      - ./volumes/vw-data:/data/
+    ports:
+      - "888:80"
+

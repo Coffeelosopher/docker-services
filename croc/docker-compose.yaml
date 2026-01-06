@@ -1,0 +1,9 @@
+services:
+  croc-relay:
+    container_name: croc-relay
+    image: schollz/croc
+    environment:
+      - CROC_PASS=${CROC_PASS}
+    restart: unless-stopped
+    ports:
+      - "9009-9013:9009-9013"
